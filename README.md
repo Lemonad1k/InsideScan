@@ -6,7 +6,10 @@ Local barcode scanner — iPhone/Android scans, result types as keyboard input o
 
 ## Quick Start
 
-**Mac:** Double-click `InsideScan.app`  
+**Mac:**
+1. Right-click `install_mac.command` → **Open**
+2. Click **Open** in the security dialog (one time only)
+
 **Windows:** Double-click `install_windows.bat`
 
 ## Requirements
@@ -51,7 +54,10 @@ Move mouse to top-left corner of screen.
 
 ## Быстрый старт
 
-**Mac:** Двойной клик на `InsideScan.app`  
+**Mac:**
+1. Правый клик на `install_mac.command` → **Открыть**
+2. Нажать **Открыть** в диалоге безопасности (только один раз)
+
 **Windows:** Двойной клик на `install_windows.bat`
 
 ## Требования
