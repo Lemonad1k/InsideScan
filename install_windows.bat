@@ -1,35 +1,37 @@
 @echo off
-chcp 65001 >nul
 cd /d "%~dp0"
 
 echo.
-echo   ╔══════════════════════════════════╗
-echo   ║       InsideScan  установка      ║
-echo   ╚══════════════════════════════════╝
+echo   InsideScan - Setup
+echo   ==================
 echo.
 
-:: Check Python
 python --version >nul 2>&1
 if errorlevel 1 (
-    echo   ❌  Python не найден.
-    echo   Скачай с https://python.org
-    echo   При установке отметь "Add Python to PATH"
+    echo   Python not found. Downloading installer...
     echo.
+    curl -L -o python_installer.exe https://www.python.org/ftp/python/3.12.0/python-3.12.0-amd64.exe
+    echo.
+    echo   Running Python installer...
+    echo   IMPORTANT: Check "Add Python to PATH" at the bottom of the installer!
+    echo.
+    python_installer.exe
+    del python_installer.exe
+    echo.
+    echo   After Python is installed, run this script again.
     pause
-    exit /b 1
+    exit /b 0
 )
 
-for /f "tokens=2" %%v in ('python --version') do set PYVER=%%v
-echo   ✓  Python %PYVER% найден
+echo   Python found
 echo.
-echo   Устанавливаю зависимости...
+echo   Installing dependencies...
 echo.
 
-python -m pip install --upgrade pip --quiet
-python -m pip install pynput websockets qrcode --quiet
+python -m pip install pynput websockets qrcode
 
 echo.
-echo   ✓  Готово! Запускаю InsideScan...
+echo   Done! Starting InsideScan...
 echo.
 
 python InsideScan.py
